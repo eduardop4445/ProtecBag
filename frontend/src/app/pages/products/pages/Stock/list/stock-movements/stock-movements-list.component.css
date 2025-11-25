@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.search {
+  width: 260px;
+}
+
+.filter {
+  width: 160px;
+}
+
+.custom-table th {
+  background-color: #c62828;
+  color: white;
+}
+
+.in {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.out {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

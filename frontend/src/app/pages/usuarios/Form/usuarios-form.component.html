@@ -1,0 +1,48 @@
+<div class="container mt-4">
+
+  <h2>{{ isEditing ? 'Editar Usuário' : 'Novo Usuário' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+
+    <mat-form-field class="w-100">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="w-100" *ngIf="!isEditing">
+      <mat-label>Senha</mat-label>
+      <input type="password" matInput formControlName="senha">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="telefone">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Papel</mat-label>
+      <mat-select formControlName="papel">
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="Comum">Comum</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Ativo</mat-label>
+      <mat-select formControlName="ativo">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+    <button mat-raised-button color="warn" type="button" class="ms-2" (click)="cancelar()">Cancelar</button>
+
+  </form>
+
+</div>

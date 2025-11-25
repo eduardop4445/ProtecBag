@@ -1,0 +1,36 @@
+<h2>{{ isEditing ? 'Editar Usuário' : 'Novo Usuário' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="half">
+    <mat-label>Perfil</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="User">Usuário</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="half" *ngIf="!isEditing">
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </div>
+</form>

@@ -1,0 +1,58 @@
+<mat-sidenav-container class="app-container">
+
+  <!-- MENU LATERAL -->
+  <mat-sidenav #sidenav class="app-sidenav" mode="side" [opened]="true" [fixedInViewport]="true">
+
+    <!-- LOGO REDUZIDA -->
+    <div class="logo">
+      <img src="assets/protecbag.png" alt="ProtecBag Logo" class="logo-img">
+    </div>
+
+    <mat-nav-list class="menu-list">
+
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span>Painel</span>
+      </a>
+
+      <a mat-list-item routerLink="/products" routerLinkActive="active">
+        <mat-icon>inventory_2</mat-icon>
+        <span>Produtos</span>
+      </a>
+
+      <a mat-list-item routerLink="/stock-movements" routerLinkActive="active">
+        <mat-icon>sync_alt</mat-icon>
+        <span>Movimentações</span>
+      </a>
+
+      <a mat-list-item routerLink="/users" routerLinkActive="active">
+        <mat-icon>people</mat-icon>
+        <span>Usuários</span>
+      </a>
+
+      <a mat-list-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary" class="app-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="toolbar-title">ProtecBag</span>
+    </mat-toolbar>
+
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,47 @@
+<h2>Painel do Estoque</h2>
+
+<div class="cards">
+  <mat-card class="card">
+    <h3>Total de Produtos</h3>
+    <p class="value">{{ totalProdutos }}</p>
+    <p class="hint">Produtos cadastrados</p>
+  </mat-card>
+
+  <mat-card class="card alert">
+    <h3>Estoque Crítico</h3>
+    <p class="value">{{ produtosCriticos }}</p>
+    <p class="hint">Itens abaixo do mínimo</p>
+  </mat-card>
+
+  <mat-card class="card">
+    <h3>Movimentações no mês</h3>
+    <p class="value">{{ totalMovimentacoesMes }}</p>
+    <p class="hint">Entradas + Saídas</p>
+  </mat-card>
+</div>
+
+<h3 class="subtitle">Uso Mensal</h3>
+
+<div class="usage">
+  <mat-card *ngFor="let item of usoMensal" class="usage-card">
+    <div class="usage-header">
+      <span>{{ item.mes }}</span>
+      <span>{{ item.valor }}</span>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="item.valor">
+    </mat-progress-bar>
+  </mat-card>
+</div>
+
+<h3 class="subtitle">Itens com Estoque Crítico</h3>
+
+<mat-card class="list">
+  <ul>
+    <li *ngFor="let item of itensCriticos">
+      <strong>{{ item.name }}</strong> — {{ item.qtd }} unidades
+    </li>
+  </ul>
+</mat-card>

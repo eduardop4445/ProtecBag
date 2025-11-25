@@ -1,0 +1,72 @@
+<div class="products-header">
+  <h2>Produtos</h2>
+
+  <div class="actions">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Buscar</mat-label>
+      <input matInput (input)="applyFilter($event)" placeholder="Digite para filtrar...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="create()">
+      Novo Produto
+    </button>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z3 custom-table">
+
+  <!-- Nome -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+    <td mat-cell *matCellDef="let p"> {{ p.name }} </td>
+  </ng-container>
+
+  <!-- Quantidade -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </th>
+    <td mat-cell *matCellDef="let p" [ngClass]="{ 'low-stock': p.quantity < p.minimumQuantity }">
+      {{ p.quantity }}
+    </td>
+  </ng-container>
+
+  <!-- Unidade -->
+  <ng-container matColumnDef="unit">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidade </th>
+    <td mat-cell *matCellDef="let p">
+      <mat-icon class="unit-icon" *ngIf="p.unit === 'un'">inventory_2</mat-icon>
+      <mat-icon class="unit-icon" *ngIf="p.unit === 'rolo'">recycling</mat-icon>
+      <mat-icon class="unit-icon" *ngIf="p.unit === 'caixa'">category</mat-icon>
+      {{ p.unit }}
+    </td>
+  </ng-container>
+
+  <!-- Mínimo -->
+  <ng-container matColumnDef="minimumQuantity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Mínimo </th>
+    <td mat-cell *matCellDef="let p"> {{ p.minimumQuantity }} </td>
+  </ng-container>
+
+  <!-- Ações -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let p">
+      <button mat-icon-button color="primary" (click)="edit(p.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="delete(p.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [pageSize]="8" [pageSizeOptions]="[5, 8, 12, 20]"></mat-paginator>
+
+<div *ngIf="loading" class="loading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

@@ -1,0 +1,80 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px;
+  text-align: left;
+}
+
+.card.alert {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.hint {
+  color: #666;
+  font-size: 13px;
+}
+
+.subtitle {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.usage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.usage-card {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px;
+}
+
+.usage-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.list {
+  padding: 12px 16px;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+  }
+  .usage {
+    flex-direction: column;
+  }
+}

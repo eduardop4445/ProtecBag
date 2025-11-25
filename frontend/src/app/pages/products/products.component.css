@@ -1,0 +1,48 @@
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.search-field {
+  width: 260px;
+}
+
+.custom-table th {
+  background-color: #c62828;
+  color: white;
+  font-weight: 600;
+}
+
+.custom-table td {
+  font-size: 15px;
+}
+
+.unit-icon {
+  font-size: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+  color: #c62828;
+}
+
+.low-stock {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.mat-paginator {
+  margin-top: 20px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

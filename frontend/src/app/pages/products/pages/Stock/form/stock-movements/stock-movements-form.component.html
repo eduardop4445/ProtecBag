@@ -1,0 +1,45 @@
+<h2>{{ isEditing ? 'Editar Movimentação' : 'Nova Movimentação' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Produto</mat-label>
+    <mat-select formControlName="productId">
+      <mat-option *ngFor="let p of products" [value]="p.id">
+        {{ p.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="half">
+    <mat-label>Tipo</mat-label>
+    <mat-select formControlName="type">
+      <mat-option [value]="0">Entrada</mat-option>
+      <mat-option [value]="1">Saída</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="half">
+    <mat-label>Quantidade</mat-label>
+    <input matInput type="number" formControlName="quantity">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="half">
+    <mat-label>Data</mat-label>
+    <input matInput type="date" formControlName="date">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Observações</mat-label>
+    <textarea matInput formControlName="notes"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    Salvar
+  </button>
+
+  <button mat-button type="button" (click)="router.navigate(['/stock-movements'])">
+    Cancelar
+  </button>
+
+</form>
